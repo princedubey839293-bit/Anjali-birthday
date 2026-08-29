@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Anjali</title>
+<meta name="description" content="A little birthday surprise for Anjali.">
+
+<!-- Fonts: Cormorant Garamond (display) + Jost (body/utility) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================================
+     1. PASSWORD ENTRY — BOARDING PASS
+     ============================================ -->
+<section id="gate" class="gate">
+  <div class="gate__glow" aria-hidden="true"></div>
+
+  <div class="boarding-pass gate__content">
+
+    <div class="boarding-pass__top">
+      <div class="boarding-pass__airline">
+        <span class="boarding-pass__plane" aria-hidden="true">✈</span>
+        <span>PRIVATE FLIGHT</span>
+      </div>
+
+      <div class="boarding-pass__status">
+        BOARDING
+      </div>
+    </div>
+
+
+    <!-- Flight route -->
+    <div class="boarding-pass__route">
+
+      <div class="boarding-pass__location">
+        <span class="boarding-pass__label">FROM</span>
+        <strong>4 AUG 2019</strong>
+      </div>
+
+      <div
+        class="boarding-pass__flight-line"
+        aria-hidden="true"
+      >
+        <span class="boarding-pass__dot"></span>
+        <span class="boarding-pass__line"></span>
+        <span class="boarding-pass__plane-small">✈</span>
+        <span class="boarding-pass__line"></span>
+        <span class="boarding-pass__dot"></span>
+      </div>
+
+      <div class="boarding-pass__location boarding-pass__location--right">
+        <span class="boarding-pass__label">TO</span>
+        <strong>30 AUG 2026</strong>
+      </div>
+
+    </div>
+
+
+    <!-- Passenger details -->
+    <div class="boarding-pass__details">
+
+      <div class="boarding-pass__detail">
+        <span>PASSENGER</span>
+        <strong>Anjali</strong>
+      </div>
+
+      <div class="boarding-pass__detail">
+        <span>DATE</span>
+        <strong>30 AUG 2026</strong>
+      </div>
+
+      <div class="boarding-pass__detail">
+        <span>FLIGHT</span>
+        <strong>BDAY-2026</strong>
+      </div>
+
+      <div class="boarding-pass__detail">
+        <span>GATE</span>
+        <strong>∞</strong>
+      </div>
+
+    </div>
+
+
+    <!-- Perforated divider -->
+    <div
+      class="boarding-pass__divider"
+      aria-hidden="true"
+    >
+      <span></span>
+    </div>
+
+
+    <!-- Password area -->
+    <div class="boarding-pass__message">
+
+      <p class="gate__eyebrow">
+        your boarding pass awaits
+      </p>
+
+      <h1 class="gate__title">
+        Ready for takeoff?
+      </h1>
+
+      <p class="boarding-pass__instruction">
+        Enter your password to continue.
+      </p>
+
+    </div>
+
+
+    <!-- Password form -->
+    <form
+      id="gate-form"
+      class="gate__form"
+      autocomplete="off"
+    >
+
+      <label
+        for="gate-input"
+        class="sr-only"
+      >
+        Enter password
+      </label>
+
+      <input
+        type="password"
+        id="gate-input"
+        class="gate__input"
+        placeholder="Enter password"
+        autocomplete="off"
+        inputmode="text"
+      >
+
+      <button
+        type="submit"
+        class="gate__button"
+      >
+        Board Flight
+        <span aria-hidden="true">✈</span>
+      </button>
+
+    </form>
+
+
+    <!-- Password error message -->
+    <p
+      id="gate-message"
+      class="gate__message"
+      aria-live="polite"
+    >&nbsp;</p>
+
+
+    <!-- Footer -->
+    <div class="boarding-pass__footer">
+
+      <span>
+        FLIGHT STATUS
+      </span>
+
+      <strong>
+        READY FOR DEPARTURE
+      </strong>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================
+     MAIN SITE
+     Hidden until password is correct
+     ============================================ -->
+<main id="site" class="site" hidden>
+
+
+  <!-- Floating music control -->
+  <button
+    id="music-toggle"
+    class="music-toggle"
+    aria-label="Play music"
+    hidden
+  >
+    <span
+      class="music-toggle__icon"
+      aria-hidden="true"
+    ></span>
+  </button>
+
+
+  <audio
+    id="bg-music"
+    loop
+    preload="none"
+  >
+    <source
+      src="assets/music/song.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
+
+
+  <!-- ============================================
+       2. BIRTHDAY HERO / INTRO
+       ============================================ -->
+  <section id="hero" class="hero">
+
+    <div
+      class="hero__particles"
+      aria-hidden="true"
+    ></div>
+
+    <div class="hero__content">
+
+      <p class="hero__eyebrow">
+        30 August
+      </p>
+
+      <h1 class="hero__title">
+        Happy Birthday,<br>
+        <span id="hero-name">Anjali</span>
+        <span class="heart">❤</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Today is all about you.
+      </p>
+
+      <button
+        id="begin-button"
+        class="btn btn--primary hero__begin"
+      >
+        Begin
+      </button>
+
+    </div>
+
+    <div
+      class="hero__scroll-hint"
+      aria-hidden="true"
+    >
+      <span></span>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================
+       3. OUR STORY TIMELINE
+       ============================================ -->
+  <section id="story" class="story">
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        since the beginning
+      </p>
+
+      <h2 class="section-header__title">
+        Our Story
+      </h2>
+
+    </div>
+
+
+    <ol
+      class="timeline"
+      id="timeline"
+    >
+
+      <li
+        class="timeline__item"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            4 August 2019
+          </p>
+
+          <p class="timeline__text">
+            The first conversation.
+          </p>
+
+        </div>
+
+      </li>
+
+
+      <li
+        class="timeline__item"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            Since childhood
+          </p>
+
+          <p class="timeline__text">
+            We've known each other since childhood.
+          </p>
+
+        </div>
+
+      </li>
+
+
+      <li
+        class="timeline__item"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            18 September 2020
+          </p>
+
+          <p class="timeline__text">
+            The day our story officially began.
+          </p>
+
+        </div>
+
+      </li>
+
+
+      <li
+        class="timeline__item"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            24 September 2020
+          </p>
+
+          <p class="timeline__text">
+            The proposal.
+          </p>
+
+        </div>
+
+      </li>
+
+
+      <li
+        class="timeline__item"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            26 December 2022
+          </p>
+
+          <p class="timeline__text">
+            Our first outing.
+          </p>
+
+        </div>
+
+      </li>
+
+
+      <li
+        class="timeline__item timeline__item--today"
+        data-reveal
+      >
+
+        <div
+          class="timeline__marker"
+          aria-hidden="true"
+        ></div>
+
+        <div class="timeline__card">
+
+          <p class="timeline__date">
+            30 August 2026
+          </p>
+
+          <p class="timeline__text">
+            Today — your birthday.
+          </p>
+
+        </div>
+
+      </li>
+
+    </ol>
+
+  </section>
+
+
+  <!-- ============================================
+       4. PHOTO GALLERY
+       ============================================ -->
+  <section
+    id="gallery"
+    class="gallery"
+  >
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        moments
+      </p>
+
+      <h2 class="section-header__title">
+        Photo Gallery
+      </h2>
+
+    </div>
+
+
+    <div
+      class="gallery__grid"
+      id="gallery-grid"
+    ></div>
+
+  </section>
+
+
+  <!-- Lightbox -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    hidden
+  >
+
+    <button
+      class="lightbox__close"
+      id="lightbox-close"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+
+    <button
+      class="lightbox__nav lightbox__nav--prev"
+      id="lightbox-prev"
+      aria-label="Previous photo"
+    >
+      &larr;
+    </button>
+
+    <img
+      class="lightbox__image"
+      id="lightbox-image"
+      src=""
+      alt=""
+    >
+
+    <button
+      class="lightbox__nav lightbox__nav--next"
+      id="lightbox-next"
+      aria-label="Next photo"
+    >
+      &rarr;
+    </button>
+
+    <p
+      class="lightbox__caption"
+      id="lightbox-caption"
+    ></p>
+
+  </div>
+
+
+  <!-- ============================================
+       6. FUNNY COUPLE QUIZ
+       ============================================ -->
+  <section
+    id="quiz"
+    class="quiz"
+  >
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        let's see
+      </p>
+
+      <h2 class="section-header__title">
+         Quiz
+      </h2>
+
+    </div>
+
+
+    <div
+      class="quiz__panel"
+      id="quiz-panel"
+    >
+
+      <p
+        class="quiz__progress"
+        id="quiz-progress"
+      >
+        Question 1 of 5
+      </p>
+
+      <p
+        class="quiz__question"
+        id="quiz-question"
+      >
+        Loading question…
+      </p>
+
+
+      <div
+        class="quiz__options"
+        id="quiz-options"
+      >
+        <!-- Answer buttons rendered by script.js -->
+      </div>
+
+
+      <p
+        class="quiz__reaction"
+        id="quiz-reaction"
+        aria-live="polite"
+      >&nbsp;</p>
+
+
+      <button
+        class="btn btn--ghost quiz__next"
+        id="quiz-next"
+        hidden
+      >
+        Next question
+      </button>
+
+    </div>
+
+
+    <div
+      class="quiz__result"
+      id="quiz-result"
+      hidden
+    >
+
+      <p id="quiz-result-text">
+        Okay... you actually know each other pretty well 😂❤️
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================
+       7. RELATIONSHIP COUNTER
+       ============================================ -->
+  <section
+    id="counter"
+    class="counter"
+    data-start="2020-09-18T00:00:00"
+  >
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        and counting
+      </p>
+
+      <h2 class="section-header__title">
+        It's Been…
+      </h2>
+
+    </div>
+
+
+    <div class="counter__grid">
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-years"
+        >0</span>
+
+        <span class="counter__label">
+          Years
+        </span>
+      </div>
+
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-months"
+        >0</span>
+
+        <span class="counter__label">
+          Months
+        </span>
+      </div>
+
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-days"
+        >0</span>
+
+        <span class="counter__label">
+          Days
+        </span>
+      </div>
+
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-hours"
+        >0</span>
+
+        <span class="counter__label">
+          Hours
+        </span>
+      </div>
+
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-minutes"
+        >0</span>
+
+        <span class="counter__label">
+          Minutes
+        </span>
+      </div>
+
+
+      <div class="counter__unit">
+        <span
+          class="counter__value"
+          id="count-seconds"
+        >0</span>
+
+        <span class="counter__label">
+          Seconds
+        </span>
+      </div>
+
+    </div>
+
+
+    <p class="counter__footer">
+      ...and still counting
+      <span class="heart">❤</span>
+    </p>
+
+  </section>
+
+
+  <!-- ============================================
+       8. VIDEO MONTAGE
+       ============================================ -->
+  <section
+    id="video"
+    class="video-section"
+  >
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        watch
+      </p>
+
+      <h2 class="section-header__title">
+        Video Montage
+      </h2>
+
+    </div>
+
+
+    <div
+      class="video-section__wrap"
+      id="video-wrap"
+    ></div>
+
+  </section>
+
+
+  <!-- ============================================
+       9. BIRTHDAY CAKE
+       ============================================ -->
+  <section
+    id="cake"
+    class="cake"
+  >
+
+    <div class="section-header">
+
+      <p class="section-header__eyebrow">
+        one wish
+      </p>
+
+      <h2 class="section-header__title">
+        Make a Wish
+        <span aria-hidden="true">🎂</span>
+      </h2>
+
+    </div>
+
+
+    <div class="cake__stage">
+
+      <svg
+        class="cake__svg"
+        id="cake-svg"
+        viewBox="0 0 300 260"
+        role="img"
+        aria-label="A birthday cake with a candle"
+      >
+
+        <!-- Plate -->
+        <ellipse
+          cx="150"
+          cy="235"
+          rx="120"
+          ry="12"
+          fill="var(--color-rose-gold)"
+          opacity="0.35"
+        />
+
+        <!-- Bottom tier -->
+        <rect
+          x="55"
+          y="165"
+          width="190"
+          height="65"
+          rx="10"
+          fill="var(--color-cake-base)"
+        />
+
+        <rect
+          x="55"
+          y="165"
+          width="190"
+          height="14"
+          rx="7"
+          fill="var(--color-cake-icing)"
+        />
+
+        <!-- Top tier -->
+        <rect
+          x="90"
+          y="110"
+          width="120"
+          height="60"
+          rx="10"
+          fill="var(--color-cake-base-alt)"
+        />
+
+        <rect
+          x="90"
+          y="110"
+          width="120"
+          height="14"
+          rx="7"
+          fill="var(--color-cake-icing)"
+        />
+
+        <!-- Candle -->
+        <rect
+          x="142"
+          y="70"
+          width="16"
+          height="42"
+          rx="4"
+          fill="var(--color-rose-gold)"
+        />
+
+        <!-- Flame -->
+        <g
+          id="candle-flame"
+          class="cake__flame"
+          tabindex="0"
+          role="button"
+          aria-label="Blow out the candle and make a wish"
+        >
+
+          <ellipse
+            cx="150"
+            cy="60"
+            rx="9"
+            ry="14"
+            fill="var(--color-flame-outer)"
+          />
+
+          <ellipse
+            cx="150"
+            cy="63"
+            rx="5"
+            ry="8"
+            fill="var(--color-flame-inner)"
+          />
+
+        </g>
+
+      </svg>
+
+
+      <div
+        class="cake__confetti"
+        id="cake-confetti"
+        aria-hidden="true"
+      ></div>
+
+    </div>
+
+
+    <p
+      class="cake__hint"
+      id="cake-hint"
+    >
+      Tap the flame to make a wish
+    </p>
+
+    <p
+      class="cake__message"
+      id="cake-message"
+      aria-live="polite"
+    >&nbsp;</p>
+
+  </section>
+
+
+  <!-- ============================================
+       10. FINAL BIRTHDAY SCENE
+       ============================================ -->
+  <section
+    id="finale"
+    class="finale"
+  >
+
+    <div
+      class="finale__particles"
+      aria-hidden="true"
+    ></div>
+
+
+    <div class="finale__content">
+
+      <h2 class="finale__title">
+
+        Happy Birthday,
+
+        <span id="finale-name">
+          Anjali
+        </span>
+
+        <span class="heart">
+          ❤
+        </span>
+
+      </h2>
+
+
+      <p
+        class="finale__line"
+        id="finale-line-1"
+      >
+        Thank you for all the memories we've already made.
+      </p>
+
+
+      <button
+        class="btn btn--primary finale__button"
+        id="finale-button"
+      >
+        Celebrate
+        <span aria-hidden="true">🎉</span>
+      </button>
+
+
+      <div
+        class="finale__reveal"
+        id="finale-reveal"
+        hidden
+      >
+
+        <p
+          class="finale__line finale__line--final"
+          id="finale-line-2"
+        >
+          [Your final birthday message will go here.]
+        </p>
+
+        <p class="finale__signoff">
+          Until the next birthday…
+          <span class="heart">❤</span>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="finale__confetti"
+      id="finale-confetti"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="finale__fireworks"
+      id="finale-fireworks"
+      aria-hidden="true"
+    ></div>
+
+  </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
